@@ -1,0 +1,74 @@
+<h1 class="title">Editar Tarefa</h1>
+<div mat-dialog-content>
+
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+        <div class="field">
+            <div class="control">
+                <mat-form-field class="full-width" floatLabel="always" appearance="outline">
+                    <mat-label>Nome da tarefa</mat-label>
+                    <input matInput type="text" class="input" [(ngModel)]="todo.text" #todoTextField="ngModel" name="text" required maxlength="30">
+                    <mat-hint>Max 30 caracteres</mat-hint>
+                </mat-form-field>
+
+                <div *ngIf="todoTextField.invalid">
+                    <p class="help is-danger" *ngIf="todoTextField.errors?.['required']">Por favor insira o texto na sua tarefa</p>
+                    <p class="help is-danger" *ngIf="todoTextField.errors?.['maxlength']">Texto da tarefa deve ter no máximo 30 caracteres</p>
+                </div>
+            </div>
+
+            <div class="control">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Descrição da tarefa</mat-label>
+                    <textarea matInput type="descricao" [(ngModel)]="todo.descricao" #todoDescricaoField="ngModel" name="descricao" placeholder="Digite aqui a descrição da tarefa..." required maxlength="60"></textarea>
+                </mat-form-field>
+
+                <div *ngIf="todoDescricaoField.invalid">
+                    <p class="help is-danger" *ngIf="todoDescricaoField.errors?.['required']">Por favor insira uma descrição a sua tarefa</p>
+                    <p class="help is-danger" *ngIf="todoDescricaoField.errors?.['maxlength']">A descrição da tarefa deve ter no máximo 30 caracteres</p>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <div class="datepicker">
+            <div class="data-criacao">
+                <mat-form-field appearance="outline">
+                    <mat-label>Data de criação</mat-label>
+                    <input matInput type="criacao" [(ngModel)]="todo.criacao" #todoCriacaoField="ngModel" name="criacao" [matDatepicker]="criacao" required>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="criacao"></mat-datepicker-toggle>
+                    <mat-datepicker #criacao></mat-datepicker>
+                </mat-form-field>
+                <div *ngIf="todoCriacaoField.invalid">
+                    <p class="helpdate is-danger" *ngIf="todoCriacaoField.errors?.['required']">Por favor insira a data de criação</p>
+                </div>
+            </div>
+
+            <div class="data-conclusao">
+                <mat-form-field appearance="outline">
+                    <mat-label>Data de conclusão</mat-label>
+                    <input matInput type="conclusao" [(ngModel)]="todo.conclusao" #todoConclusaoField="ngModel" name="conclusao" [matDatepicker]="conclusao" required>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="conclusao"></mat-datepicker-toggle>
+                    <mat-datepicker #conclusao></mat-datepicker>
+                </mat-form-field>
+                <div *ngIf="todoConclusaoField.invalid">
+                    <p class="helpdate is-danger" *ngIf="todoConclusaoField.errors?.['required']">Por favor insira a data de conclusão</p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div mat-dialog-action [align]="'end'">
+            <button type="button" class="button is-light float-right" mat-raised-button mat-dialog-close>Cancelar</button>
+
+            <button type="submit" class="button float-right control" mat-raised-button color="primary">
+                <i class="material-icons">save</i>
+                Salvar
+            </button>
+        </div>
+    </form>
+
+</div>

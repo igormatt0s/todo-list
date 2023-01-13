@@ -1,0 +1,26 @@
+.is-danger {
+    color: red;
+    font-size: 10px;
+    margin-left: 12px;
+}
+
+.control {
+    margin-left: 10px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.datepicker{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.helpdate{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}

@@ -1,0 +1,22 @@
+{
+  "todoList": [
+    {
+      "text": "Tarefa 1",
+      "descricao": "Ex.: Ir ao mercado.",
+      "criacao": "2022-12-01T03:00:00.000Z",
+      "conclusao": "2022-12-01T03:00:00.000Z",
+      "id": 1,
+      "checked": true
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
